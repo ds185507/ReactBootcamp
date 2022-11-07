@@ -1,4 +1,4 @@
-const API_KEY = "a0bb3a3ae250c7fd303d90a75131f24f";
+const API_KEY = config.WEATHER_KEY;
 function getCoordintes() {
   function getCurrLocName(lat, lon, API_KEY) {
     fetch(
@@ -71,10 +71,7 @@ function displayWeather(name, API_KEY) {
     });
 }
 
-
- function getWeather() {
+function getWeather() {
   let name = document.querySelector(".search-bar").value;
-  displayWeather(name,API_KEY)
-};
-
-
+  displayWeather(name, API_KEY);
+}
