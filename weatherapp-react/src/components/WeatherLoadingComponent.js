@@ -1,10 +1,10 @@
 import React from 'react'
 import "../index.css"
 
-function LoadingComponent() {
+function  WeatherLoadingComponent() {
   return (
     <div ><p className="loading">Loading.....</p></div>
   )
 }
 
-export default LoadingComponent
+export default WeatherLoadingComponent

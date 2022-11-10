@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../index.css";
-import WeatherSearchBar from "./WeatherSearchBar";
+import WeatherSearchComp from "./WeatherSearchComp";
 import WeatherInfoComp from "./WeatherInfoComp";
 import config from "../config";
 
@@ -48,8 +48,7 @@ function WeatherCard() {
     )
       .then((res) => {
         if (!res.ok) {
-          alert("Invalid Name");
-          throw new Error("No weather found.");
+          setFlag(2)
         }
         return res.json();
       })
@@ -70,18 +69,21 @@ function WeatherCard() {
         };
 
         setData(data);
-        setFlag(false);
+        setFlag(1);
       });
   }
 
-  const [flag, setFlag] = useState(true); //true means => load the loading comp
+  const [flag, setFlag] = useState(0);
+  //0 -> loading path
+  //1 -> valid input
+  //2 -> invalid input
   const [data, setData] = useState(null);
 
-  if (flag) getCoordintes();
+  if (flag===0) getCoordintes();
 
   return (
     <div className="card">
-      <WeatherSearchBar myFunction={getWeather} className="search" />
+      <WeatherSearchComp myFunction={getWeather} className="search" />
       <WeatherInfoComp cityData={data} flag={flag} />
     </div>
   );

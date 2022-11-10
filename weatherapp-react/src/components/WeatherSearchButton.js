@@ -1,7 +1,7 @@
 import React from "react";
 import "../index.css";
 
-function SearchButton({ city, myFunction }) {
+function WeatherSearchButton({ city, myFunction }) {
   return (
     <>
       <button
@@ -26,4 +26,4 @@ function SearchButton({ city, myFunction }) {
   );
 }
 
-export default SearchButton;
+export default WeatherSearchButton;

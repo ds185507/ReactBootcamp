@@ -1,16 +1,18 @@
-import React,{useState} from 'react'
-import SearchBar from './WeatherNameBar'
-import SearchButton from './WeatherSearchButton'
-import "../index.css"
-
-function WeatherSearchBar({myFunction}) {
-   const [city,setCity] = useState("");
+import React from "react";
+import "../index.css";
+function WeatherSearchBar({ city, setCity }) {
   return (
-     <div className="search">
-        <SearchBar city={city} setCity={setCity} />
-        <SearchButton city={city} myFunction={myFunction}/>
-     </div>   
-  )
+    <div>
+      <input
+        type="text"
+        className="search-bar"
+        value={city}
+        onChange={(event) => {
+          setCity(event.target.value);
+        }}
+      />
+    </div>
+  );
 }
 
-export default WeatherSearchBar
+export default WeatherSearchBar;

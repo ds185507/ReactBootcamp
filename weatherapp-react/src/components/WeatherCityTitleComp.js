@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CityTitleComp({name}) {
+function WeatherCityTitleComp({name}) {
   return (
     <div>
         <h2 className="city">Weather in {name}</h2>
@@ -8,4 +8,4 @@ function CityTitleComp({name}) {
   )
 }
 
-export default CityTitleComp
+export default WeatherCityTitleComp

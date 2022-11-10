@@ -1,26 +1,27 @@
 import React from "react";
-import CityTitleComp from "./WeatherCityTitleComp";
+import WeatherCityTitleComp from "./WeatherCityTitleComp";
 import WeatherImageComp from "./WeatherImageComp";
 import WeatherTempComp from "./WeatherTempComp";
 import WeatherDetailsComp from "./WeatherDetailsComp";
-import LoadingComponent from "./WeatherLoadingComponent";
+import WeatherLoadingComponent from "./WeatherLoadingComponent";
+import WeatherErrorComp from "./WeatherErrorComp";
 import "../index.css"
 
 function WeatherInfoComp({cityData,flag}) {
-  if(cityData==null) return (<div>
-    <LoadingComponent />
+  if(cityData===null || flag===0) return (<div>
+    <WeatherLoadingComponent />
   </div>);
 
   const{name,icon,description,temp,humidity,speed} = cityData;
 
-  return (!flag) ? (
+  return (flag===1) ? (
     <div className= "info">
-      <CityTitleComp name={name} />
+      <WeatherCityTitleComp name={name} />
       <WeatherImageComp icon={icon} />
       <WeatherTempComp temp={temp}/>
       <WeatherDetailsComp description={description} humidity ={humidity} speed={speed} />
     </div>
-  ) : <LoadingComponent />
+  ) : <WeatherErrorComp />
   ;
 }
 
